@@ -1,3 +1,4 @@
+// employee-list.component.ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
@@ -41,4 +42,14 @@ const employees: Employee[] = [
 })
 export class EmployeeListComponent {
   employees = employees;
+  async handleViewEmployee(employee: Employee) {
+    console.log(employee);
+  }
+  async handleEditEmployee(employee: Employee) {
+    console.log(employee);
+  }
+  async handleDeleteEmployee(employee: Employee) {
+    console.log(employee);
+  }
+
 }

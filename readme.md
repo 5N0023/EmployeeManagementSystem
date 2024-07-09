@@ -20,4 +20,7 @@ cd EmployeeManagementSystemFront
 ng generate component home
 ng generate service services/employee
 ng generate component components/employee-list
+ng generate component components/employee-detail
+ng generate component components/employee-create
+ng generate component components/employee-edit
 ```

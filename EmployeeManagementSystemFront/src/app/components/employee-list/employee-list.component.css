@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    display: table;
+    border-spacing: 2px;
+    border-color: grey;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+table thead {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+table th {
+    padding: 8px;
+    border: 1px solid grey;
+}
+
+table td {
+    padding: 8px;
+    border: 1px solid grey;
+}
+
+#actions {
+    display: flex;
+    justify-content: center;
+    border: none !important;
+    gap: 4px;
+}
+#actions button {
+    padding: 8px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
