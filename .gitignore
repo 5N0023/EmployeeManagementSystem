@@ -34,3 +34,5 @@ Thumbs.db
 
 # Angular specific files
 .e2e/
+# sln files
+*.sln

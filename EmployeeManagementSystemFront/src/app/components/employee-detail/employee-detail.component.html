@@ -1,1 +1,30 @@
-<p>employee-detail works!</p>
+<div class="view" *ngIf="selectedEmployee">
+  <div class="overlay"></div>
+  <div class="employee-details">
+    <h2 class="view-title">
+      {{ selectedEmployee.firstName }} {{ selectedEmployee.lastName }}
+    </h2>
+    <div class="detail-row">
+      <label>First Name:</label> <span>{{ selectedEmployee.firstName }}</span>
+    </div>
+    <div class="detail-row">
+      <label>Last Name:</label> <span>{{ selectedEmployee.lastName }}</span>
+    </div>
+    <div class="detail-row">
+      <label>Email:</label> <span>{{ selectedEmployee.email }}</span>
+    </div>
+    <div class="detail-row">
+      <label>Phone Number:</label>
+      <span>{{ selectedEmployee.phoneNumber }}</span>
+    </div>
+    <div class="detail-row">
+      <label>Position:</label> <span>{{ selectedEmployee.position }}</span>
+    </div>
+    <div class="detail-row">
+      <label>Department:</label> <span>{{ selectedEmployee.department }}</span>
+    </div>
+    <button (click)="hideEmployeeDetail()" class="view-close-button">
+      Close
+    </button>
+  </div>
+</div>

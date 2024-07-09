@@ -1,5 +1,5 @@
 table {
-    width: 100%;
+    width: 90vw;
     border-collapse: collapse;
     display: table;
     border-spacing: 2px;
@@ -31,14 +31,18 @@ table td {
 #actions {
     display: flex;
     justify-content: center;
-    border: none !important;
+    border: none;
     gap: 4px;
 }
 #actions button {
     padding: 8px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
+    /* border: none; */
+    background-color: #ffffff;
     cursor: pointer;
     border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

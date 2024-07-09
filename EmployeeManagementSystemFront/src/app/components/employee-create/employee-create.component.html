@@ -1,1 +1,80 @@
-<p>employee-create works!</p>
+<div class="employee-create-container">
+    <button
+      (click)="handleCreateEmployee()"
+      *ngIf="!showCreateEmployeeForm"
+      id="createEmployeeButton"
+    >
+      Create Employee
+    </button>
+    <form
+      *ngIf="showCreateEmployeeForm"
+      (ngSubmit)="handleCreateEmployeeSubmit()"
+      id="createEmployeeForm"
+    >
+      <div>
+        <label for="firstName">First Name:</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          [(ngModel)]="employee.firstName"
+          required
+        />
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          [(ngModel)]="employee.lastName"
+          required
+        />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="employee.email"
+          required
+        />
+      </div>
+      <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          name="phoneNumber"
+          [(ngModel)]="employee.phoneNumber"
+          required
+        />
+      </div>
+      <div>
+        <label for="position">Position:</label>
+        <input
+          type="text"
+          id="position"
+          name="position"
+          [(ngModel)]="employee.position"
+          required
+        />
+      </div>
+      <div>
+        <label for="department">Department:</label>
+        <input
+          type="text"
+          id="department"
+          name="department"
+          [(ngModel)]="employee.department"
+          required
+        />
+      </div>
+      <div class="form-buttons">
+        <button type="submit" class="submit-button">Submit</button>
+        <button type="button" (click)="handleCreateEmployee()" class="cancel-button">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

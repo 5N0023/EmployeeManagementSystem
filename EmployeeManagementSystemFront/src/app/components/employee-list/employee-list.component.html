@@ -20,10 +20,11 @@
       <td>{{ employee.position }}</td>
       <td>{{ employee.department }}</td>
       <td id="actions">
-        <button (click)="handleViewEmployee(employee)">view</button>
-        <button (click)="handleEditEmployee(employee)">edit</button>
-        <button (click)="handleDeleteEmployee(employee)">delete</button>
+        <button (click)="handleViewEmployee(employee)"><lucide-icon name="Eye" color="black"></lucide-icon></button>
+        <button (click)="handleEditEmployee(employee)"><lucide-icon name="Pen" color="black"></lucide-icon></button>
+        <button (click)="handleDeleteEmployee(employee)"><lucide-icon name="Trash" color="red"></lucide-icon></button>
       </td>
     </tr>
   </tbody>
 </table>
+<app-employee-detail></app-employee-detail>

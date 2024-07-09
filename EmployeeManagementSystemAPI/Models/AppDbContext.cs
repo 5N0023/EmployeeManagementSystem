@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagementAPI.Models
@@ -11,3 +13,5 @@ namespace EmployeeManagementAPI.Models
         public DbSet<Employee> Employees { get; set; }
     }
 }
+
+
