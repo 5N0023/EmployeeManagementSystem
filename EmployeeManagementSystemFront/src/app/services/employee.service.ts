@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-interface Employee {
+export interface Employee {
   id?: string;
   firstName: string;
   lastName: string;
@@ -24,6 +24,10 @@ export class EmployeeService {
     new BehaviorSubject<Employee | undefined>(undefined);
   public selectedEmployee$: Observable<Employee | undefined> =
     this._selectedEmployee.asObservable();
+  private _editEmployee: BehaviorSubject<Employee | undefined> =
+    new BehaviorSubject<Employee | undefined>(undefined);
+  public editEmployee$: Observable<Employee | undefined> =
+    this._editEmployee.asObservable();
   constructor() {
     this.initializeEmployeeData();
   }
@@ -41,6 +45,16 @@ export class EmployeeService {
   }
   getSelectedEmployee(): Observable<Employee | undefined> {
     return this.selectedEmployee$;
+  }
+  setEditEmployee(employee: Employee): void {
+    console.log('Setting edit employee:', employee);
+    this._editEmployee.next({ ...employee });
+  }
+  uneditEmployee(): void {
+    this._editEmployee.next(undefined);
+  }
+  getEditEmployee(): Observable<Employee | undefined> {
+    return this.editEmployee$;
   }
   async getEmployeesData(): Promise<Employee[]> {
     try {
@@ -93,6 +107,35 @@ export class EmployeeService {
       this._employeeData.next(updatedData);
     } catch (error) {
       console.error('Error deleting employee:', error);
+      throw error;
+    }
+  }
+  async updateEmployee(employee: Employee): Promise<void> {
+    try {
+      const id = employee.id;
+      // exclude id from the employee object
+      const tmp = { ...employee };
+      delete tmp.id;
+      const response = await fetch(
+        `http://localhost:5151/api/employee/${employee.id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(tmp),
+        }
+      );
+      if (!response.ok) {
+        throw new Error('Failed to update employee');
+      }
+      const currentData = this._employeeData.getValue();
+      const updatedData = currentData.map((emp) =>
+        emp.id === id ? employee : emp
+      );
+      this._employeeData.next(updatedData);
+    } catch (error) {
+      console.error('Error updating employee:', error);
       throw error;
     }
   }

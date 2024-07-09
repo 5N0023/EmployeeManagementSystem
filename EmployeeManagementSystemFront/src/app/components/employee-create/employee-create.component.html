@@ -6,11 +6,13 @@
     >
       Create Employee
     </button>
+    <div class="overlay" *ngIf="showCreateEmployeeForm"></div>
     <form
       *ngIf="showCreateEmployeeForm"
       (ngSubmit)="handleCreateEmployeeSubmit()"
       id="createEmployeeForm"
     >
+    
       <div>
         <label for="firstName">First Name:</label>
         <input

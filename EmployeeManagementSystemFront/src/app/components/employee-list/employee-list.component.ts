@@ -1,25 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../../services/employee.service';
+import { Employee, EmployeeService } from '../../services/employee.service';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { EmployeeDetailComponent } from '../employee-detail/employee-detail.component';
+import { EmployeeEditComponent } from '../employee-edit/employee-edit.component';
 
-interface Employee {
-  id?: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  position: string;
-  department: string;
-}
 
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css'],
   standalone: true,
-  imports: [CommonModule, LucideAngularModule,EmployeeDetailComponent]
+  imports: [CommonModule, LucideAngularModule,EmployeeDetailComponent,EmployeeEditComponent]
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
@@ -69,5 +61,6 @@ export class EmployeeListComponent implements OnInit {
 
   handleEditEmployee(employee: Employee): void {
     console.log(employee);
+    this.employeeService.setEditEmployee(employee);
   }
 }

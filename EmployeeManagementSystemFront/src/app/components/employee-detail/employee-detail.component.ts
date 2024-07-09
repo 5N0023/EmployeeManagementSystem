@@ -1,16 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { EmployeeListComponent } from '../employee-list/employee-list.component';
-import { EmployeeService } from '../../services/employee.service';
-interface Employee {
-  id?: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  position: string;
-  department: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { Employee, EmployeeService } from '../../services/employee.service';
+
 @Component({
   selector: 'app-employee-detail',
   standalone: true,

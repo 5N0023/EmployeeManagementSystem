@@ -8,10 +8,11 @@
       <th>Phone Number</th>
       <th>Position</th>
       <th>Department</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let employee of employees">
+    <tr *ngFor="let employee of employees; let i = index" [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
       <td>{{ employee.id }}</td>
       <td>{{ employee.firstName }}</td>
       <td>{{ employee.lastName }}</td>
@@ -20,11 +21,18 @@
       <td>{{ employee.position }}</td>
       <td>{{ employee.department }}</td>
       <td id="actions">
-        <button (click)="handleViewEmployee(employee)"><lucide-icon name="Eye" color="black"></lucide-icon></button>
-        <button (click)="handleEditEmployee(employee)"><lucide-icon name="Pen" color="black"></lucide-icon></button>
-        <button (click)="handleDeleteEmployee(employee)"><lucide-icon name="Trash" color="red"></lucide-icon></button>
+        <button (click)="handleViewEmployee(employee)">
+          <lucide-icon name="Eye" color="black"></lucide-icon>
+        </button>
+        <button (click)="handleEditEmployee(employee)">
+          <lucide-icon name="Pen" color="black"></lucide-icon>
+        </button>
+        <button (click)="handleDeleteEmployee(employee)">
+          <lucide-icon name="Trash" color="red"></lucide-icon>
+        </button>
       </td>
     </tr>
   </tbody>
 </table>
 <app-employee-detail></app-employee-detail>
+<app-employee-edit></app-employee-edit>
