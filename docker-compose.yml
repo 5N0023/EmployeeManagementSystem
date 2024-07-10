@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./EmployeeManagementSystemAPI
+    ports:
+      - "5000:5050"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    # volumes:
+    #   - ~/.nuget/packages:/root/.nuget/packages:ro # Cache NuGet packages
+  frontend:
+    build:
+      context: ./EmployeeManagementSystemFront
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
