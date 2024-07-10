@@ -1,0 +1,52 @@
+<div class="view" *ngIf="editEmployee">
+  <div class="overlay"></div>
+  <div class="employee-details">
+    <h2 class="view-title">
+      {{ editEmployee.firstName }} {{ editEmployee.lastName }}
+    </h2>
+    <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+      <div class="detail-row">
+        <label>First Name:</label>
+        <span>
+          <input type="text" [(ngModel)]="editEmployee.firstName" name="firstName" required />
+        </span>
+      </div>
+      <div class="detail-row">
+        <label>Last Name:</label>
+        <span>
+          <input type="text" [(ngModel)]="editEmployee.lastName" name="lastName" required />
+        </span>
+      </div>
+      <div class="detail-row">
+        <label>Email:</label>
+        <span>
+          <input type="email" [(ngModel)]="editEmployee.email" name="email" required />
+        </span>
+      </div>
+      <div class="detail-row">
+        <label>Phone Number:</label>
+        <span>
+          <input type="text" [(ngModel)]="editEmployee.phoneNumber" name="phoneNumber" required />
+        </span>
+      </div>
+      <div class="detail-row">
+        <label>Position:</label>
+        <span>
+          <input type="text" [(ngModel)]="editEmployee.position" name="position" required />
+        </span>
+      </div>
+      <div class="detail-row">
+        <label>Department:</label>
+        <span>
+          <input type="text" [(ngModel)]="editEmployee.department" name="department" required />
+        </span>
+      </div>
+      <div class="button-row">
+        <button type="button" (click)="hideEmployeeEdit()" class="edit-button-cancel"
+        >Cancel</button>
+        <button type="submit" class="edit-button-submit"
+        >Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

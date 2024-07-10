@@ -6,7 +6,7 @@ set -e
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Navigate to the backend project directory and run database update
-cd EmployeeManagementSystemAPI
+cd ./EmployeeManagementSystemAPI/src/
 dotnet ef database update
 # kill any existing dotnet process
 pkill dotnet || true
@@ -14,5 +14,5 @@ pkill dotnet || true
 dotnet run &
 
 # Navigate to the frontend project directory and run the Angular app
-cd ../EmployeeManagementSystemFront
+cd ../../EmployeeManagementSystemFront/src/
 ng serve --open
