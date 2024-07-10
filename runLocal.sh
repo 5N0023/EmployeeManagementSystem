@@ -15,4 +15,5 @@ dotnet run &
 
 # Navigate to the frontend project directory and run the Angular app
 cd ../../EmployeeManagementSystemFront/src/
+npm i
 ng serve --open

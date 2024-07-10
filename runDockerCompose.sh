@@ -2,4 +2,4 @@
 
 
 # This script is used to run the program using Docker Compose
-docker-compose up --build
+docker-compose up --build -d
